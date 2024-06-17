@@ -1,0 +1,52 @@
+<nav id="sidebar" [class.open-sidebar]="isSidebarOpen">
+  <div id="sidebar_content">
+      <div id="user">
+          <img src="./assets/imagens/BIOMETRIA.jpg" id="user_avatar" alt="Avatar">
+          <p id="user_infos">
+              <span class="item-description">
+                  Evaldo Rodrigues
+              </span>
+              <span class="item-description">
+                  TI
+              </span>
+          </p>
+      </div>
+      <ul id="side_items">
+        <li class="side-item">
+          <a href="/list-products">
+              <i class="fa-solid fa-users"></i>
+              <span class="item-description">
+                  Usuários de Telefonia
+              </span>
+          </a>
+      </li>
+          <li class="side-item">
+              <a href="/list-orders">
+                 <i class="fa-solid fa-mobile"></i>
+                  <span class="item-description">
+                      Operadoras
+                  </span>
+              </a>
+          </li>
+          <li class="side-item">
+              <a href="/location">
+                  <i class="fa-solid fa-id-card"></i>
+                  <span class="item-description">
+                      Termo de Responsabilidade
+                  </span>
+              </a>
+          </li>
+      </ul>
+      <button id="open_btn" (click)="toggleSidebar()" >
+          <i id="open_btn_icon" class="fa-solid fa-chevron-right"></i>
+      </button>
+  </div>
+  <div id="report">
+      <button id="report_btn">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <span class="item-description">
+              Reportar Problema
+          </span>
+      </button>
+  </div>
+</nav>

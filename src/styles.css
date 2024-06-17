@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --branco: #fff;
+    --preto: #000;
+    --background-home: #e3e9f7;
+    --verde: #157347;
+    --azul: #5c5cda;
+}
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #e3e9f7;
+  font-family: "DM Serif Text", serif;
+}
