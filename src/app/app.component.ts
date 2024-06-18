@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './Components/sidebar/sidebar.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
+import { HomeComponent } from './Components/home/home.component';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
     CommonModule,
     RouterOutlet,
     SidebarComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomeComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
