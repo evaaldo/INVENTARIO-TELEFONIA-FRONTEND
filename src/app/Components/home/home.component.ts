@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { CardHomeComponent } from './card-home/card-home.component';
 
 @Component({
