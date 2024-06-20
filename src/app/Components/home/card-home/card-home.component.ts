@@ -15,4 +15,5 @@ export class CardHomeComponent {
   @Input() itemUm: string = "Primeiro item";
   @Input() itemDois: string = "Segundo item";
   @Input() itemTres: string = "Terceiro item";
+  @Input() link: string = "/home";
 }

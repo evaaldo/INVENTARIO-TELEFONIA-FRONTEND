@@ -5,6 +5,7 @@ import { SidebarComponent } from './Components/sidebar/sidebar.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { HomeComponent } from './Components/home/home.component';
 import { SearchCardComponent } from './Components/home/search-card/search-card.component';
+import { UsuariosComponent } from './Components/usuarios/usuarios.component';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,8 @@ import { SearchCardComponent } from './Components/home/search-card/search-card.c
     SidebarComponent,
     NavbarComponent,
     HomeComponent,
-    SearchCardComponent
+    SearchCardComponent,
+    UsuariosComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
