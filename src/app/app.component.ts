@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './Components/sidebar/sidebar.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { HomeComponent } from './Components/home/home.component';
+import { SearchCardComponent } from './Components/home/search-card/search-card.component';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,8 @@ import { HomeComponent } from './Components/home/home.component';
     RouterOutlet,
     SidebarComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    SearchCardComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

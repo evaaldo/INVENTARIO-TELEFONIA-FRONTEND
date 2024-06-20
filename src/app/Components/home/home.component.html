@@ -1,5 +1,5 @@
-<div class="container">
-  <app-card-home
+<div class="container col-lg-12 gap-5" style="display: flex;">
+  <app-card-home class="d-flex justify-content-center align-items-center col-lg-4 "
     titulo="Tabela de Usuários"
     icone="fa-solid fa-users"
     corIcone=""
@@ -10,7 +10,7 @@
     temTres="Operadoras dos usuários"
   >
   </app-card-home>
-  <app-card-home
+  <app-card-home class="d-flex justify-content-center align-items-center col-lg-4"
     titulo="Tabela de Operadoras"
     icone="fa-solid fa-mobile"
     corIcone=""
@@ -21,7 +21,7 @@
     temTres="Modelos por operadoras"
   >
   </app-card-home>
-  <app-card-home
+  <app-card-home class="d-flex justify-content-center align-items-center col-lg-4"
     titulo="Tabela de Termo de Responsabilidade"
     icone="fa-solid fa-id-card"
     corIcone=""
@@ -32,4 +32,9 @@
     itemTres="Informações do colaborador de acordo com termo"
   >
   </app-card-home>
+</div>
+<div class="container col-lg-6 p-5">
+  <h1 class="text-center fw-bold">Procure rapidamente o colaborador</h1>
+  <h5 class="text-center">Utilize o campo abaixo para buscar pelo seu colaborador em mente</h5>
+  <app-search-card></app-search-card>
 </div>
