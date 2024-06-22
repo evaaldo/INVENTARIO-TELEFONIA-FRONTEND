@@ -12,7 +12,15 @@
           </p>
       </div>
       <ul id="side_items">
-        <li class="side-item">
+        <li class="side-item" [ngClass]="{'active': isActive('/home')}">
+          <a href="/home">
+              <i class="fa-solid fa-house"></i>
+              <span class="item-description">
+                  Home
+              </span>
+          </a>
+      </li>
+        <li class="side-item" [ngClass]="{'active': isActive('/usuarios')}">
           <a href="/usuarios">
               <i class="fa-solid fa-users"></i>
               <span class="item-description">
@@ -20,7 +28,7 @@
               </span>
           </a>
       </li>
-          <li class="side-item">
+          <li class="side-item" [ngClass]="{'active': isActive('/operadoras')}">
               <a href="/list-orders">
                  <i class="fa-solid fa-mobile"></i>
                   <span class="item-description">
@@ -28,7 +36,7 @@
                   </span>
               </a>
           </li>
-          <li class="side-item">
+          <li class="side-item" [ngClass]="{'active': isActive('/termoResponsabilidade')}">
               <a href="/location">
                   <i class="fa-solid fa-id-card"></i>
                   <span class="item-description">
@@ -36,6 +44,30 @@
                   </span>
               </a>
           </li>
+          <li class="side-item" [ngClass]="{'active': isActive('/notasFiscais')}">
+            <a href="/home">
+                <i class="fa-solid fa-ticket"></i>
+                <span class="item-description">
+                    Notas Fiscais
+                </span>
+            </a>
+        </li>
+        <li class="side-item" [ngClass]="{'active': isActive('/planoContas')}">
+          <a href="/home">
+              <i class="fa-solid fa-money-bill"></i>
+              <span class="item-description">
+                  Plano de Contas
+              </span>
+          </a>
+      </li>
+      <li class="side-item" [ngClass]="{'active': isActive('/linhasTelefonicas')}">
+        <a href="/home">
+            <i class="fa-solid fa-phone"></i>
+            <span class="item-description">
+                Linhas Telefônicas
+            </span>
+        </a>
+    </li>
       </ul>
       <button id="open_btn" (click)="toggleSidebar()" >
           <i id="open_btn_icon" class="fa-solid fa-chevron-right"></i>
@@ -43,7 +75,7 @@
   </div>
   <div id="report">
       <button id="report_btn">
-          <i class="fa-solid fa-circle-exclamation"></i>
+          <i class="fa-solid fa-bug"></i>
           <span class="item-description">
               Reportar Problema
           </span>

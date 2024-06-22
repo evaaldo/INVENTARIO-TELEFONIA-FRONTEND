@@ -20,4 +20,5 @@ body {
   height: 100vh;
   background-color: #e3e9f7;
   font-family: "DM Serif Text", serif;
+  overflow-x: hidden;
 }
