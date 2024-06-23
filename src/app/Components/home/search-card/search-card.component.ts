@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import usuarios from '../../../usuarios.json'
+import { FormsModule } from '@angular/forms';
 
 interface Usuario {
   id: number,
@@ -18,7 +19,7 @@ interface Usuario {
 @Component({
   selector: 'app-search-card',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './search-card.component.html',
   styleUrl: './search-card.component.css'
 })
