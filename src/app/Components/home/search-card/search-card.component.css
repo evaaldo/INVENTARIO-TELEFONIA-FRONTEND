@@ -252,3 +252,19 @@ color: #3c4142;
   border: 1px solid #e6e4e9;
   border-radius: 8px;
 }
+
+.fa-trash, .fa-pen-to-square {
+  cursor: pointer;
+}
+
+.fa-trash {
+  color: darkred;
+}
+
+.fa-pen-to-square {
+  color: rgb(18, 195, 201);
+}
+
+thead tr th {
+  font-size: .85em;
+}

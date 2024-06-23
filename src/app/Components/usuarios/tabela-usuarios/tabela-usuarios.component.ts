@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import usuarios from './usuarios.json'
+import usuarios from '../../../usuarios.json'
 
 interface Usuario {
   id: number,
