@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "urlFoto": "https://bootdey.com/img/Content/avatar/avatar2.png",
+    "nome": "Evaldo Rodrigues Monteiro Junior",
+    "matricula": "1-10731",
+    "dataAdmissao": "01/08/2023",
+    "setor": "TI",
+    "operadora": "TIM",
+    "dispositivo": "Iphone 11",
+    "imei": "354562658646311",
+    "telefone": "(85) 9.9612-8278",
+    "cargoArea": "Estagiário - Sistemas"
+  },
+  {
+    "id": 2,
+    "urlFoto": "https://bootdey.com/img/Content/avatar/avatar3.png",
+    "nome": "Livia Christine Soares Pinheiro",
+    "matricula": "1-10731",
+    "dataAdmissao": "01/11/2022",
+    "setor": "GENTE",
+    "operadora": "TIM",
+    "dispositivo": "Iphone 12",
+    "imei": "354562658646311",
+    "telefone": "(85) 9.8830-0141",
+    "cargoArea": "Estagiário - Treinamentos"
+  },
+  {
+    "id": 3,
+    "urlFoto": "https://bootdey.com/img/Content/avatar/avatar2.png",
+    "nome": "Ewertonn Dourado Rodrigues",
+    "matricula": "1-10987",
+    "dataAdmissao": "01/08/2025",
+    "setor": "TI",
+    "operadora": "VIVO",
+    "dispositivo": "Samsung Galaxy S23 Ultra",
+    "imei": "354562658646311",
+    "telefone": "(85) 9.9935-4328",
+    "cargoArea": "Analista - Infraestrutura"
+  }
+]
