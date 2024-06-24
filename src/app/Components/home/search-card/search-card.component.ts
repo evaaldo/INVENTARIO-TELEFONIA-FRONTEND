@@ -25,9 +25,9 @@ interface Usuario {
 })
 export class SearchCardComponent {
   usuariosLista: Usuario[] = usuarios;
-  filtroTexto: string = ''
+  filtroTexto: string = '';
 
-  usuarioFiltradoPorTexto(texto: string): Usuario[] {
+  usuarioFiltrado(texto: string): Usuario[] {
     if(this.filtroTexto == '') {
       return this.usuariosLista;
     } else {

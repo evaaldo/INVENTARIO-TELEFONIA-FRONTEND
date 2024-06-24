@@ -27,12 +27,12 @@ export class TabelaUsuariosComponent {
   filtroTexto: string = "";
   usuariosLista: Usuario[] = usuarios;
 
-  usuarioFiltradoPorTexto(texto: string): Usuario[] {
+  usuarioFiltrado(texto: string): Usuario[] {
     if(!this.filtroTexto) {
       return this.usuariosLista;
     } else {
       return this.usuariosLista.filter(usuario => {
-        return usuario.nome.toLowerCase().includes(this.filtroTexto.toLowerCase());
+        return usuario.nome.toLowerCase().includes(texto.toLowerCase());
       });
     }
   }

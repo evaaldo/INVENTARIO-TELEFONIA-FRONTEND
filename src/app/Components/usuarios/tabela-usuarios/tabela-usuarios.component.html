@@ -12,11 +12,11 @@
                               <div class="row no-gutters">
                                   <div class="col-lg-2 col-md-3 col-sm-12">
                                       <select class="form-control" id="exampleFormControlSelect1">
-                                          <option>Diretoria</option>
-                                          <option>Presidência</option>
-                                          <option>Gente</option>
-                                          <option>Comercial</option>
-                                          <option>Financeiro</option>
+                                          <option value="">Diretoria</option>
+                                          <option value="presidencia">Presidencia</option>
+                                          <option value="gente">Gente</option>
+                                          <option value="comercial">Comercial</option>
+                                          <option value="financeiro">Financeiro</option>
                                       </select>
                                   </div>
                                   <div class="col-lg-10 col-md-6 col-sm-12 p-0">
@@ -88,7 +88,7 @@
                                               </tr>
                                             </thead>
                                               <tbody>
-                                                  @for (usuario of usuarioFiltradoPorTexto(filtroTexto); track usuario.id) {
+                                                  @for (usuario of usuarioFiltrado(filtroTexto); track usuario.id) {
                                                     <tr>
                                                       <td>
                                                           <div class="widget-26-job-emp-img">
