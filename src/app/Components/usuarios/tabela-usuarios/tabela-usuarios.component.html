@@ -6,17 +6,16 @@
       <div class="col-lg-12 card-margin">
           <div class="card search-form">
               <div class="card-body p-0">
-                  <form id="search-form">
                       <div class="row">
                           <div class="col-12">
                               <div class="row no-gutters">
                                   <div class="col-lg-2 col-md-3 col-sm-12">
-                                      <select class="form-control" id="exampleFormControlSelect1">
+                                      <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="filtroSetor">
                                           <option value="">Diretoria</option>
-                                          <option value="presidencia">Presidencia</option>
-                                          <option value="gente">Gente</option>
-                                          <option value="comercial">Comercial</option>
-                                          <option value="financeiro">Financeiro</option>
+                                          <option value="Presidencia">Presidencia</option>
+                                          <option value="Gente">Gente</option>
+                                          <option value="Comercial">Comercial</option>
+                                          <option value="Financeiro">Financeiro</option>
                                       </select>
                                   </div>
                                   <div class="col-lg-10 col-md-6 col-sm-12 p-0">
@@ -32,7 +31,6 @@
                               </div>
                           </div>
                       </div>
-                  </form>
               </div>
           </div>
       </div>
@@ -52,12 +50,6 @@
                                           <div class="col-lg-6">
                                               <div class="result-actions">
                                                   <div class="result-sorting">
-                                                      <span>Ordernar por:</span>
-                                                      <select class="form-control border-0" id="exampleOption">
-                                                          <option value="1">Data de contratação</option>
-                                                          <option value="2">Nomes (A-Z)</option>
-                                                          <option value="3">Nomes (Z-A)</option>
-                                                      </select>
                                                   </div>
                                                   <div class="result-views">
                                                       <button type="button" class="btn btn-soft-base btn-icon">
@@ -88,8 +80,7 @@
                                               </tr>
                                             </thead>
                                               <tbody>
-                                                  @for (usuario of usuarioFiltrado(filtroTexto); track usuario.id) {
-                                                    <tr>
+                                                    <tr *ngFor="let usuario of usuarioFiltrado()">
                                                       <td>
                                                           <div class="widget-26-job-emp-img">
                                                               <img src="{{ usuario.urlFoto }}" alt="Company" />
@@ -131,7 +122,6 @@
                                                           </div>
                                                       </td>
                                                   </tr>
-                                                  }
                                               </tbody>
                                           </table>
                                       </div>
