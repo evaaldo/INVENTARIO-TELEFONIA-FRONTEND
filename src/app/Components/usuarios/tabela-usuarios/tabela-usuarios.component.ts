@@ -31,13 +31,13 @@ export class TabelaUsuariosComponent {
   filtroAlfabetico: string = "";
   usuariosLista: Usuario[] = usuarios;
   alfabeto: string = "abcdefghijklmnopqrstuvwxyz";
+  registros: number = this.usuariosLista.length;
 
   usuarioFiltrado(): Usuario[] {
     return this.usuariosLista.filter(usuario => {
       const setorFiltrado = this.filtroSetor ? usuario.setor === this.filtroSetor : true;
       const textoFiltrado = this.filtroTexto ? usuario.nome.toLowerCase().includes(this.filtroTexto.toLowerCase()) : true;
-      const ordemAlfabetica = this.filtroAlfabetico ? usuario.nome.toLowerCase().startsWith("a") : true;
-      return setorFiltrado && textoFiltrado && ordemAlfabetica;
+      return setorFiltrado && textoFiltrado;
     })
   }
 }

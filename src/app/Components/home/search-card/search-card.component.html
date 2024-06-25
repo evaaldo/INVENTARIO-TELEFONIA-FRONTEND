@@ -3,17 +3,16 @@
       <div class="col-lg-12 card-margin">
           <div class="card search-form">
               <div class="card-body p-0">
-                  <form id="search-form">
                       <div class="row">
                           <div class="col-12">
                               <div class="row no-gutters">
                                   <div class="col-lg-3 col-md-3 col-sm-12">
-                                    <select class="form-control" id="exampleFormControlSelect1">
-                                      <option>Diretoria</option>
-                                      <option>Presidência</option>
-                                      <option>Gente</option>
-                                      <option>Comercial</option>
-                                      <option>Financeiro</option>
+                                    <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="filtroSetor">
+                                         <option value="">Diretoria</option>
+                                          <option value="Presidencia">Presidencia</option>
+                                          <option value="Gente">Gente</option>
+                                          <option value="Comercial">Comercial</option>
+                                          <option value="Financeiro">Financeiro</option>
                                   </select>
                                   </div>
                                   <div class="col-lg-9 col-md-6 col-sm-12 p-0">
@@ -29,7 +28,6 @@
                               </div>
                           </div>
                       </div>
-                  </form>
               </div>
           </div>
       </div>
@@ -44,7 +42,7 @@
                                   <div class="result-header">
                                       <div class="row">
                                           <div class="col-lg-6">
-                                              <div class="records">Mostrando: <b>1-20</b> de <b>200</b> resultados</div>
+                                              <div class="records">Mostrando: <b>{{ registros }}</b> de <b>{{ registros }}</b> resultados</div>
                                           </div>
                                           <div class="col-lg-6">
                                               <div class="result-actions">
@@ -64,8 +62,7 @@
                                       <div class="table-responsive">
                                           <table class="table widget-26">
                                               <tbody>
-                                                @for (usuario of usuarioFiltrado(filtroTexto); track usuario.id) {
-                                                  <tr>
+                                                  <tr *ngFor="let usuario of usuarioFiltrado()">
                                                     <td>
                                                         <div class="widget-26-job-emp-img">
                                                             <img src="{{ usuario.urlFoto }}" alt="Company" />
@@ -98,7 +95,6 @@
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                }
                                               </tbody>
                                           </table>
                                       </div>

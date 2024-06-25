@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import usuarios from '../../../usuarios.json'
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 interface Usuario {
   id: number,
@@ -19,21 +20,21 @@ interface Usuario {
 @Component({
   selector: 'app-search-card',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './search-card.component.html',
   styleUrl: './search-card.component.css'
 })
 export class SearchCardComponent {
+  filtroSetor: string = "";
+  filtroTexto: string = "";
   usuariosLista: Usuario[] = usuarios;
-  filtroTexto: string = '';
+  registros: number = this.usuariosLista.length;
 
-  usuarioFiltrado(texto: string): Usuario[] {
-    if(this.filtroTexto == '') {
-      return this.usuariosLista;
-    } else {
-      return this.usuariosLista.filter(usuario => {
-        return usuario.nome.toLowerCase().includes(texto.toLowerCase());
-      })
-    }
+  usuarioFiltrado(): Usuario[] {
+    return this.usuariosLista.filter(usuario => {
+      const textoFiltrato = this.filtroSetor ? usuario.setor === this.filtroSetor : true;
+      const setorFiltrado = this.filtroTexto ? usuario.nome.toLowerCase().includes(this.filtroTexto.toLowerCase()) : true;
+      return textoFiltrato && setorFiltrado;
+    })
   }
 }
