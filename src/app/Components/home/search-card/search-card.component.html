@@ -42,19 +42,7 @@
                                   <div class="result-header">
                                       <div class="row">
                                           <div class="col-lg-6">
-                                              <div class="records">Mostrando: <b>{{ registros }}</b> de <b>{{ registros }}</b> resultados</div>
-                                          </div>
-                                          <div class="col-lg-6">
-                                              <div class="result-actions">
-                                                  <div class="result-sorting">
-                                                      <span>Ordernar por:</span>
-                                                      <select class="form-control border-0" id="exampleOption">
-                                                          <option value="1">Data de contratação</option>
-                                                          <option value="2">Nomes (A-Z)</option>
-                                                          <option value="3">Nomes (Z-A)</option>
-                                                      </select>
-                                                  </div>
-                                              </div>
+                                              <div class="records">Mostrando: <b>{{ totalLinhas }}</b> de <b>{{ usuariosLista.length }}</b> resultados</div>
                                           </div>
                                       </div>
                                   </div>
@@ -62,7 +50,7 @@
                                       <div class="table-responsive">
                                           <table class="table widget-26">
                                               <tbody>
-                                                  <tr *ngFor="let usuario of usuarioFiltrado()">
+                                                  <tr *ngFor="let usuario of usuarioFiltrado()" #usuarioRows>
                                                     <td>
                                                         <div class="widget-26-job-emp-img">
                                                             <img src="{{ usuario.urlFoto }}" alt="Company" />

@@ -45,7 +45,7 @@
                                   <div class="result-header">
                                       <div class="row">
                                           <div class="col-lg-6">
-                                              <div class="records">Mostrando: <b>{{ registros }}</b> de <b>{{ registros }}</b> resultados</div>
+                                              <div class="records">Mostrando: <b>{{ totalLinhas }}</b> de <b>{{ usuariosLista.length }}</b> resultados</div>
                                           </div>
                                           <div class="col-lg-6">
                                               <div class="result-actions">
@@ -80,7 +80,7 @@
                                               </tr>
                                             </thead>
                                               <tbody>
-                                                    <tr *ngFor="let usuario of usuarioFiltrado()">
+                                                    <tr *ngFor="let usuario of usuarioFiltrado()" #usuarioRows>
                                                       <td>
                                                           <div class="widget-26-job-emp-img">
                                                               <img src="{{ usuario.urlFoto }}" alt="Company" />

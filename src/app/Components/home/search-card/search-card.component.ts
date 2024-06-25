@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import usuarios from '../../../usuarios.json'
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -24,11 +24,24 @@ interface Usuario {
   templateUrl: './search-card.component.html',
   styleUrl: './search-card.component.css'
 })
-export class SearchCardComponent {
+export class SearchCardComponent implements AfterViewInit {
   filtroSetor: string = "";
   filtroTexto: string = "";
   usuariosLista: Usuario[] = usuarios;
-  registros: number = this.usuariosLista.length;
+  totalLinhas: number = 0;
+
+  @ViewChildren("usuarioRows") usuarioRows! : QueryList<any>;
+
+  constructor(private cdr : ChangeDetectorRef) {}
+
+  ngAfterViewInit() {
+    this.usuarioRows.changes.subscribe(() => {
+        this.totalLinhas = this.usuarioRows.length;
+        this.cdr.detectChanges();
+    })
+    this.totalLinhas = this.usuarioRows.length;
+    this.cdr.detectChanges();
+  }
 
   usuarioFiltrado(): Usuario[] {
     return this.usuariosLista.filter(usuario => {

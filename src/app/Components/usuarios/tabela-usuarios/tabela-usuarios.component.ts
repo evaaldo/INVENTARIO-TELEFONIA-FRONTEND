@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, QueryList, ViewChildren } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import usuarios from '../../../usuarios.json'
 import { CommonModule } from '@angular/common';
@@ -25,13 +25,24 @@ interface Usuario {
   styleUrl: './tabela-usuarios.component.css'
 })
 
-export class TabelaUsuariosComponent {
+export class TabelaUsuariosComponent implements AfterViewInit {
   filtroTexto: string = "";
   filtroSetor: string = "";
-  filtroAlfabetico: string = "";
   usuariosLista: Usuario[] = usuarios;
-  alfabeto: string = "abcdefghijklmnopqrstuvwxyz";
-  registros: number = this.usuariosLista.length;
+  totalLinhas: number = 0;
+
+  @ViewChildren("usuarioRows") usuarioRows!: QueryList<any>
+
+  constructor(private cdr: ChangeDetectorRef) {}
+
+  ngAfterViewInit() {
+    this.usuarioRows.changes.subscribe(() => {
+      this.totalLinhas = this.usuarioRows.length;
+      this.cdr.detectChanges();
+    })
+    this.totalLinhas = this.usuarioRows.length;
+    this.cdr.detectChanges();
+  }
 
   usuarioFiltrado(): Usuario[] {
     return this.usuariosLista.filter(usuario => {
