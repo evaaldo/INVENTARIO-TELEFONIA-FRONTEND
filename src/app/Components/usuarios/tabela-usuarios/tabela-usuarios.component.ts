@@ -101,4 +101,12 @@ export class TabelaUsuariosComponent implements AfterViewInit {
       icon: "success"
     });
   }
+
+  importarCSV() {
+    Swal.fire({
+      title: "Importação não executada",
+      text: "Esta feature ainda não está disponível",
+      icon: "error"
+    });
+  }
 }
