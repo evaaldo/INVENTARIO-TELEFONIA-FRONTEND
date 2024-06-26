@@ -1,7 +1,9 @@
-import { AfterViewInit, ChangeDetectorRef, Component, OnChanges, QueryList, SimpleChanges, ViewChildren } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, NgModule, OnChanges, QueryList, SimpleChanges, ViewChildren } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import usuarios from '../../../usuarios.json'
 import { CommonModule } from '@angular/common';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import Swal from 'sweetalert2';
 
 interface Usuario {
   id: number,
@@ -20,7 +22,11 @@ interface Usuario {
 @Component({
   selector: 'app-tabela-usuarios',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    SweetAlert2Module
+  ],
   templateUrl: './tabela-usuarios.component.html',
   styleUrl: './tabela-usuarios.component.css'
 })
@@ -36,7 +42,7 @@ export class TabelaUsuariosComponent implements AfterViewInit {
 
   @ViewChildren("usuarioRows") usuarioRows!: QueryList<any>
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private cdr: ChangeDetectorRef  ) {}
 
   ngAfterViewInit() {
     this.usuarioRows.changes.subscribe(() => {
@@ -88,5 +94,11 @@ export class TabelaUsuariosComponent implements AfterViewInit {
     a.click();
     window.URL.revokeObjectURL(url);
     a.remove;
+
+    Swal.fire({
+      title: "Exportação realizada",
+      text: "Seu documento CSV foi baixado com sucesso",
+      icon: "success"
+    });
   }
 }
