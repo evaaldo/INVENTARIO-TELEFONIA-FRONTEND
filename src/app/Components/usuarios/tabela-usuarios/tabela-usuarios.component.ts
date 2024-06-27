@@ -4,20 +4,8 @@ import usuarios from '../../../usuarios.json'
 import { CommonModule } from '@angular/common';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import Swal from 'sweetalert2';
-
-interface Usuario {
-  id: number,
-  urlFoto: string,
-  nome: string,
-  matricula: string,
-  dataAdmissao: string,
-  setor: string,
-  operadora: string,
-  dispositivo: string,
-  imei: string,
-  telefone: string,
-  cargoArea: string
-}
+import { Usuario } from '../../../Interfaces/IUsuario';
+import { UserService } from '../../../Services/UserService.service';
 
 @Component({
   selector: 'app-tabela-usuarios',
@@ -32,9 +20,9 @@ interface Usuario {
 })
 
 export class TabelaUsuariosComponent implements AfterViewInit {
+  usuariosLista: Usuario[] = this.userService.getUsuarios();
   filtroTexto: string = "";
   filtroSetor: string = "";
-  usuariosLista: Usuario[] = usuarios;
   totalLinhas: number = 0;
   totalPaginas: number = this.paginas.length;
   paginaAtual: number = 1;
@@ -42,7 +30,7 @@ export class TabelaUsuariosComponent implements AfterViewInit {
 
   @ViewChildren("usuarioRows") usuarioRows!: QueryList<any>
 
-  constructor(private cdr: ChangeDetectorRef  ) {}
+  constructor(private cdr: ChangeDetectorRef, private userService: UserService) {}
 
   ngAfterViewInit() {
     this.usuarioRows.changes.subscribe(() => {
@@ -108,5 +96,36 @@ export class TabelaUsuariosComponent implements AfterViewInit {
       text: "Esta feature ainda não está disponível",
       icon: "error"
     });
+  }
+
+  deletarUsuario(usuario: Usuario) {
+
+
+    Swal.fire({
+      title: "Tem certeza?",
+      text: "Você tem certeza que quer deletar esse usuário?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Apagar",
+      cancelButtonText: "Cancelar"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.userService.deleteUsuarios(usuario.id);
+        this.atualizarListaUsuarios();
+        Swal.fire({
+          title: "Exclusão realizada!",
+          text: `Usuário ${usuario.nome} excluído com sucesso!`,
+          icon: "success"
+        });
+      }
+    });
+
+
+  }
+
+  atualizarListaUsuarios(): void {
+    this.usuariosLista = this.userService.getUsuarios();
   }
 }

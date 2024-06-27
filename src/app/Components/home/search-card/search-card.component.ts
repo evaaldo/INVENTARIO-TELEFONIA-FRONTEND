@@ -2,20 +2,7 @@ import { AfterViewInit, ChangeDetectorRef, Component, QueryList, ViewChild, View
 import usuarios from '../../../usuarios.json'
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
-interface Usuario {
-  id: number,
-  urlFoto: string,
-  nome: string,
-  matricula: string,
-  dataAdmissao: string,
-  setor: string,
-  operadora: string,
-  dispositivo: string,
-  imei: string,
-  telefone: string,
-  cargoArea: string
-}
+import { Usuario } from '../../../Interfaces/IUsuario';
 
 @Component({
   selector: 'app-search-card',
