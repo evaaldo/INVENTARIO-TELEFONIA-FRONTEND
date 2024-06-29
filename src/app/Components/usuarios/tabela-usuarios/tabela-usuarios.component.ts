@@ -91,12 +91,40 @@ export class TabelaUsuariosComponent implements AfterViewInit {
     });
   }
 
-  importarCSV(): void {
-    Swal.fire({
-      title: "Importação não executada",
-      text: "Esta feature ainda não está disponível",
-      icon: "error"
-    });
+  importarCSV(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (!input.files?.length) {
+      Swal.fire({
+        title: 'Importação não executada',
+        text: 'Nenhum arquivo selecionado',
+        icon: 'error'
+      });
+      return;
+    }
+
+    const file = input.files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+      const text = reader.result as string;
+      const rows = text.split('\n');
+      const header = rows[0].split(',').map(h => h.trim());
+      const data = rows.slice(1).map(row => {
+        const values = row.split(',').map(value => value.trim().replace(/^"|"$/g, ''));
+        const usuario: any = {};
+        header.forEach((key, index) => {
+          usuario[key] = values[index];
+        });
+        return usuario;
+      });
+      this.usuariosLista = data as Usuario[];
+      this.cdr.detectChanges();
+      Swal.fire({
+        title: 'Importação realizada',
+        text: 'Arquivo CSV importado com sucesso',
+        icon: 'success'
+      });
+    };
+    reader.readAsText(file);
   }
 
   deletarUsuario(usuario: Usuario): void {
@@ -107,10 +135,10 @@ export class TabelaUsuariosComponent implements AfterViewInit {
       text: "Você tem certeza que quer deletar esse usuário?",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Apagar",
-      cancelButtonText: "Cancelar"
+      confirmButtonColor: "#5c5cda",
+      cancelButtonColor: "#d33000",
+      confirmButtonText: "Sim",
+      cancelButtonText: "Não"
     }).then((result) => {
       if (result.isConfirmed) {
         this.userService.deleteUsuarios(usuario.id);

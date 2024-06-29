@@ -268,3 +268,7 @@ color: #3c4142;
 thead tr th {
   font-size: .85em;
 }
+
+.importar_csv_label {
+  cursor: pointer;
+}

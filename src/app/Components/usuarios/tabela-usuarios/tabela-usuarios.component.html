@@ -51,10 +51,9 @@
                                               <div class="result-actions">
                                                   <div class="result-sorting">
                                                   </div>
-                                                  <div class="result-views">
-                                                      <button type="button" class="btn btn-soft-base btn-icon" (click)="importarCSV()">
-                                                        <i class="fa-solid fa-file-import"></i>
-                                                      </button>
+                                                  <div class="result-views d-flex justify-content-center align-items-center">
+                                                        <label for="importar_csv" class="importar_csv_label"><i class="fa-solid fa-file-import"></i></label>
+                                                        <input type="file" id="importar_csv" class="d-none" (change)="importarCSV($event)">
                                                       <button type="button" class="btn btn-soft-base btn-icon" (click)="exportarCSV()">
                                                         <i class="fa-solid fa-file-export"></i>
                                                       </button>
