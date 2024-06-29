@@ -6,6 +6,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import Swal from 'sweetalert2';
 import { Usuario } from '../../../Interfaces/IUsuario';
 import { UserService } from '../../../Services/UserService.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tabela-usuarios',
@@ -30,9 +31,9 @@ export class TabelaUsuariosComponent implements AfterViewInit {
 
   @ViewChildren("usuarioRows") usuarioRows!: QueryList<any>
 
-  constructor(private cdr: ChangeDetectorRef, private userService: UserService) {}
+  constructor(private cdr: ChangeDetectorRef, private userService: UserService, private router: Router) {}
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.usuarioRows.changes.subscribe(() => {
       this.totalLinhas = this.usuarioRows.length;
       this.cdr.detectChanges();
@@ -63,7 +64,7 @@ export class TabelaUsuariosComponent implements AfterViewInit {
     return this.usuarioFiltrado().slice(inicio,final);
   }
 
-  exportarCSV() {
+  exportarCSV(): void {
     const data = usuarios;
     const replacer = (key: string, value: any) => (value === null || value === "" ? "S/V" : value);
     const header = Object.keys(data[0]) as Array<keyof Usuario>;
@@ -90,7 +91,7 @@ export class TabelaUsuariosComponent implements AfterViewInit {
     });
   }
 
-  importarCSV() {
+  importarCSV(): void {
     Swal.fire({
       title: "Importação não executada",
       text: "Esta feature ainda não está disponível",
@@ -98,7 +99,7 @@ export class TabelaUsuariosComponent implements AfterViewInit {
     });
   }
 
-  deletarUsuario(usuario: Usuario) {
+  deletarUsuario(usuario: Usuario): void {
 
 
     Swal.fire({
@@ -123,6 +124,10 @@ export class TabelaUsuariosComponent implements AfterViewInit {
     });
 
 
+  }
+
+  atualizarUsuario(): void {
+    this.router.navigate(["/formularioUsuarios"])
   }
 
   atualizarListaUsuarios(): void {
