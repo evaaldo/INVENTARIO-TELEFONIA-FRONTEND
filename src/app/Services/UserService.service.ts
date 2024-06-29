@@ -16,4 +16,11 @@ export class UserService {
   deleteUsuarios(id: number): void {
     this.usuariosLista = this.usuariosLista.filter(usuario => usuario.id !== id);
   }
+
+  updateUsuarios(usuario: Usuario): void {
+    const index = this.usuariosLista.findIndex(usuarioLista => usuarioLista.id == usuario.id);
+    if(index !== -1) {
+      this.usuariosLista[index] = usuario;
+    }
+  }
 }

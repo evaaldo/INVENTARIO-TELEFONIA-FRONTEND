@@ -44,12 +44,14 @@
                               <div class="search-result">
                                   <div class="result-header">
                                       <div class="row">
-                                          <div class="col-lg-6">
+                                          <div class="col-lg-10">
                                               <div class="records">Mostrando: <b>{{ totalLinhas }}</b> de <b>{{ usuariosLista.length }}</b> Colaboradores</div>
                                           </div>
-                                          <div class="col-lg-6">
+                                          <div class="col-lg-2">
                                               <div class="result-actions">
-                                                  <div class="result-sorting">
+                                                  <div class="d-flex gap-2 result-sorting">
+                                                    <button class="btn prev-btn" (click)="mudarPagina(paginaAtual - 1)"><i class="fa-solid fa-chevron-left"></i></button>
+                                                    <button class="btn next-btn" (click)="mudarPagina(paginaAtual + 1)"><i class="fa-solid fa-chevron-right"></i></button>
                                                   </div>
                                                   <div class="result-views d-flex justify-content-center align-items-center">
                                                         <label for="importar_csv" class="importar_csv_label"><i class="fa-solid fa-file-import"></i></label>
@@ -116,7 +118,7 @@
                                                       </td>
                                                       <td>
                                                           <div class="widget-26-job-starred d-flex gap-4">
-                                                            <i class="fa-solid fa-pen-to-square" (click)="atualizarUsuario()"></i>
+                                                            <i class="fa-solid fa-pen-to-square" (click)="atualizarUsuario(usuario)"></i>
                                                             <i class="fa-solid fa-trash" (click)="deletarUsuario(usuario)"></i>
                                                           </div>
                                                       </td>

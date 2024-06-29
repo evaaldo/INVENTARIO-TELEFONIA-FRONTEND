@@ -272,3 +272,8 @@ thead tr th {
 .importar_csv_label {
   cursor: pointer;
 }
+
+.prev-btn, .next-btn {
+  background-color: var(--azul);
+  color: var(--branco);
+}
