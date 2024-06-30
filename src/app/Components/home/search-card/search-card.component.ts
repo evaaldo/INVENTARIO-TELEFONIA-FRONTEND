@@ -12,10 +12,13 @@ import { Usuario } from '../../../Interfaces/IUsuario';
   styleUrl: './search-card.component.css'
 })
 export class SearchCardComponent implements AfterViewInit {
+  usuariosLista: Usuario[] = usuarios;
   filtroSetor: string = "";
   filtroTexto: string = "";
-  usuariosLista: Usuario[] = usuarios;
   totalLinhas: number = 0;
+  totalPaginas: number = this.paginas.length;
+  paginaAtual = 1;
+  itensPorPagina: number = 20;
 
   @ViewChildren("usuarioRows") usuarioRows! : QueryList<any>;
 
@@ -36,5 +39,19 @@ export class SearchCardComponent implements AfterViewInit {
       const setorFiltrado = this.filtroTexto ? usuario.nome.toLowerCase().includes(this.filtroTexto.toLowerCase()) : true;
       return textoFiltrato && setorFiltrado;
     })
+  }
+
+  mudarPagina(pagina: number): void {
+    this.paginaAtual = pagina;
+  }
+
+  paginas(): number[] {
+    return Array(Math.ceil(this.usuarioFiltrado().length / this.itensPorPagina)).fill(0).map((x,i) => i + 1);
+  }
+
+  usuariosPaginados(): Usuario[] {
+    const inicio = (this.paginaAtual - 1) * this.itensPorPagina;
+    const final = inicio + this.itensPorPagina;
+    return this.usuarioFiltrado().slice(inicio,final);
   }
 }
