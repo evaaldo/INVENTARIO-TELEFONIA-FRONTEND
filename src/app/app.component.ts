@@ -6,6 +6,7 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { HomeComponent } from './Components/home/home.component';
 import { SearchCardComponent } from './Components/home/search-card/search-card.component';
 import { UsuariosComponent } from './Components/usuarios/usuarios.component';
+import { NotfoundComponent } from './Components/notfound/notfound.component';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,8 @@ import { UsuariosComponent } from './Components/usuarios/usuarios.component';
     NavbarComponent,
     HomeComponent,
     SearchCardComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    NotfoundComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
