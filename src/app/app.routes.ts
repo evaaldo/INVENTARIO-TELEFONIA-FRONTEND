@@ -42,4 +42,8 @@ export const routes: Routes = [
     path: 'linhasTelefonicas',
     component: NotfoundComponent
   },
+  {
+    path: 'reportarProblema',
+    component: NotfoundComponent
+  },
 ];

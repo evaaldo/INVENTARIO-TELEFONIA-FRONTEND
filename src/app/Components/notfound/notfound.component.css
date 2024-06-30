@@ -13,10 +13,14 @@ h2 {
 
 .btn-home {
   font-size: 1.25em;
-  background-color: var(--azul);
-  color: var(--branco);
+  font-weight: 500;
+  color: var(--azul);
+  border-color: var(--azul);
+  border: 2px solid var(--azul);
 }
 
 .btn-home:hover {
   background-color: rgb(9, 9, 92);
+  border-color: rgb(9, 9, 92);
+  color: var(--branco);
 }
