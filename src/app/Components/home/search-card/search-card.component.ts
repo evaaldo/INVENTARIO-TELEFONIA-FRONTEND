@@ -18,7 +18,7 @@ export class SearchCardComponent implements AfterViewInit {
   totalLinhas: number = 0;
   totalPaginas: number = this.paginas.length;
   paginaAtual = 1;
-  itensPorPagina: number = 20;
+  itensPorPagina: number = 10;
 
   @ViewChildren("usuarioRows") usuarioRows! : QueryList<any>;
 
