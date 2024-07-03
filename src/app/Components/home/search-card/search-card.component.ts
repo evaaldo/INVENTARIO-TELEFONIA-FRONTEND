@@ -42,7 +42,10 @@ export class SearchCardComponent implements AfterViewInit {
   }
 
   mudarPagina(pagina: number): void {
-    this.paginaAtual = pagina;
+    const paginas = Array(Math.ceil(this.usuarioFiltrado().length / this.itensPorPagina)).fill(0).map((x,i) => i + 1);
+    if(pagina > 0 && pagina <= paginas.length) {
+      this.paginaAtual = pagina;
+    }
   }
 
   paginas(): number[] {
