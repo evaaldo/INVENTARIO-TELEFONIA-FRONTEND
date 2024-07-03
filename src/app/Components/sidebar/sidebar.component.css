@@ -159,4 +159,5 @@
 
 .btn-report {
   color: var(--preto);
+  text-decoration: none;
 }
