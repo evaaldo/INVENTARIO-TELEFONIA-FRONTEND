@@ -133,7 +133,6 @@ export class TabelaUsuariosComponent implements AfterViewInit {
 
   deletarUsuario(usuario: Usuario): void {
 
-
     Swal.fire({
       title: "Tem certeza?",
       text: "Você tem certeza que quer deletar esse usuário?",
@@ -154,6 +153,7 @@ export class TabelaUsuariosComponent implements AfterViewInit {
         });
       }
     });
+
   }
 
   atualizarUsuario(usuario: Usuario): void {
